@@ -2,52 +2,13 @@
 import { ref } from "vue";
 import { invoke } from "@tauri-apps/api/core";
 
-import { getCurrentWindow } from '@tauri-apps/api/window';
-import { open } from '@tauri-apps/plugin-dialog';
 import { onMounted } from 'vue'
-import { info, error, attachConsole } from '@tauri-apps/plugin-log'
+import { getDirectoryPath } from './functions/path'
+import {  attachConsole } from '@tauri-apps/plugin-log'
 
-// 获取目录的完整地址
-async function getDirectoryPath() {
-  try {
-    const selected = await open({
-      directory: true,
-      multiple: false,
-      recursive: false,
-      title: "选择目录",
-      filters: [
-        {
-          name: "文件夹",
-          extensions: ["*"]
-        }
-      ]
-    });
-    if (selected) {
-      info("选择目录为：" + selected);
-      return selected;
-    } else {
-      info("取消");
-      return null;
-    }
-  } catch (e) {
-    error("选择目录出错" + e);
-    return null
 
-  }
-
-}
 
 onMounted(async () => {
-  // 监听窗口事件
-  // https://v2.tauri.app/reference/javascript/api/namespacewindow/#listen
-  await getCurrentWindow().onCloseRequested(async (event) => {
-    const confirmed = confirm('确认退出？');
-    if (!confirmed) {
-      // user did not confirm closing the window; let's prevent it
-      event.preventDefault();
-      // 优雅宕机操作
-    }
-  });
   // with TargetKind::Webview enabled this function will print logs to the browser console
   const detach = await attachConsole();
   // detach the browser console from the log stream
@@ -61,6 +22,7 @@ async function greet() {
   // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
   greetMsg.value = await invoke("greet", { name: name.value });
 }
+
 </script>
 
 <template>
