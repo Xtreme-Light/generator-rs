@@ -12,6 +12,26 @@
     "log:default",
     "store:default",
     "sql:default",
-    "sql:allow-execute"
+    "sql:allow-execute",
+    {
+      "identifier": "http:default",
+      "allow": [
+        {
+          "url": "https://*.tauri.app"
+        },
+        {
+          "url": "https://api.rss2json.com/**"
+        },
+        {
+          "url": "https://cdn-images-1.medium.com/**"
+        }
+      ],
+      "deny": [
+        {
+          "url": "https://private.tauri.app"
+        }
+      ]
+    },
+    "http:default"
   ]
 }
