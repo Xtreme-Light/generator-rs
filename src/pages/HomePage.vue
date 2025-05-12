@@ -1,20 +1,28 @@
-<script lang="ts" setup>
-import ThreeColumnLayout from "../layouts/ThreeColumnLayout.vue";
-import ArticleCard from "../components/ArticleCard.vue";
-import WidgetFriendSuggestions from "../components/WidgetFriendSuggestions.vue";
-import useArticles from "../composables/useArticles.ts";
-// import { onMounted, ref } from "vue";
-const articles = useArticles().getArticles();
-
-</script>
-
 <template>
-    <ThreeColumnLayout>
-      <h2 class="text-3xl font-bold mb-4">Homepage content</h2>
-      <ArticleCard v-for="(article,index) in articles" :article="article" :index="index" />
-  
-      <template #aside>
-        <WidgetFriendSuggestions />
-      </template>
-    </ThreeColumnLayout>
-  </template>
+ <div class="q-pa-md" >
+    <p>q-gutter-xs</p>
+    <div class="q-gutter-xs">
+      <q-btn color="brown" label="Button" v-for="n in 7" :key="`xs-${n}`" />
+    </div>
+
+    <p class="q-mt-md">q-gutter-sm</p>
+    <div class="q-gutter-sm">
+      <q-btn color="teal" label="Button" v-for="n in 7" :key="`sm-${n}`" />
+    </div>
+
+    <p class="q-mt-md">q-gutter-md</p>
+    <div class="q-gutter-md">
+      <q-btn color="accent" label="Button" v-for="n in 7" :key="`md-${n}`" />
+    </div>
+
+    <p class="q-mt-md">q-gutter-lg</p>
+    <div class="q-gutter-lg">
+      <q-btn color="red" label="Button" v-for="n in 7" :key="`lg-${n}`" />
+    </div>
+
+    <p class="q-mt-md">q-gutter-xl</p>
+    <div class="q-gutter-xl">
+      <q-btn color="indigo" label="Button" v-for="n in 7" :key="`xl-${n}`" />
+    </div>
+  </div>
+</template>

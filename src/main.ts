@@ -1,14 +1,31 @@
 import { createApp } from "vue";
+import { Quasar } from 'quasar'
+import quasarLang from 'quasar/lang/zh-CN'
+
 import App from "./App.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
 import "./style.css";
-import {routes} from "./route.ts";
+
+// Import icon libraries
+import '@quasar/extras/material-icons/material-icons.css'
+import quasarIconSet from 'quasar/icon-set/svg-bootstrap-icons'
+// Import Quasar css
+import 'quasar/src/css/index.sass'
+// 设置路由
+import { createMemoryHistory, createRouter } from 'vue-router'
+import { routes } from './router/routes'
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createMemoryHistory(),
     routes,
-});
+})
 
-let app = createApp(App);
-app.use(router);
-app.mount("#app");
+createApp(App)
+    .use(Quasar, {
+        // import Quasar plugins and add here
+        plugins: {},
+        lang: quasarLang,
+        iconSet: quasarIconSet,
+
+    })
+    .use(router)
+    .mount("#app");
