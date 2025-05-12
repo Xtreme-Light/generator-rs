@@ -1,10 +1,14 @@
+import { RouteRecordRaw } from 'vue-router'
 import User from '../layouts/User.vue'
 import Posts from '../pages/Posts.vue'
 
-export const routes = [
+export const routes:RouteRecordRaw[] = [
     {
         path: '/',
-        component: ()=> import('../pages/HomePage.vue'),
+        component: ()=> import('../layouts/Standard.vue'),
+        children: [
+            { path: 'database', component:  ()=>import('../pages/Database.vue')  },
+          ]
     },
     {
         path: '/user',
