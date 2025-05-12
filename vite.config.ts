@@ -1,12 +1,7 @@
 import { defineConfig } from "vite";
 
-import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
-import IconsResolver from 'unplugin-icons/resolver'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 import vue from "@vitejs/plugin-vue";
-import tailwindcss from '@tailwindcss/vite'
-import Icons from 'unplugin-icons/vite'
 
 // @ts-expect-error process is a nodejs global
 const host = process.env.TAURI_DEV_HOST;
@@ -18,28 +13,7 @@ export default defineConfig(async () => ({
 
   plugins: [
     vue(),
-    tailwindcss(),
-    AutoImport({
-      imports: ['vue'],
-      resolvers: [ElementPlusResolver(),// Auto import icon components
-        // 自动导入图标组件
-        IconsResolver({
-          prefix: 'Icon',
-        }),],
-    }),
-    Components({
-      resolvers: [ElementPlusResolver(),
-
-              // Auto register icon components
-              // 自动注册图标组件
-              IconsResolver({
-                enabledCollections: ['ep'],
-              }),
-      ],
-    }),
-    Icons({
-      autoInstall: true,
-    }),],
+  ],
   base: "/vue-layouts/",
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
