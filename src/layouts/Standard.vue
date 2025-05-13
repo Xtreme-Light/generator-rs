@@ -1,18 +1,16 @@
 <template>
-  <q-layout view="hHh LpR fFf">
+  <q-layout view="hHh lpR fFf">
 
-    <q-header elevated class="bg-primary text-white" height-hint="98">
+    <q-header elevated class="bg-primary text-white">
       <q-toolbar>
         <q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
 
         <q-toolbar-title>
-          <q-avatar>
+          <!-- <q-avatar>
             <img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
-          </q-avatar>
-          生成器
+          </q-avatar> -->
+          <!-- 生成器 -->
         </q-toolbar-title>
-
-        <q-btn dense flat round icon="menu" @click="toggleRightDrawer" />
       </q-toolbar>
 
       <!-- <q-tabs align="left">
@@ -49,13 +47,10 @@ import  AsideMenu  from '../layouts/AsideMenu.vue'
 
 
 const leftDrawerOpen = ref(false)
-const rightDrawerOpen = ref(false)
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value
 }
 
-function toggleRightDrawer() {
-  rightDrawerOpen.value = !rightDrawerOpen.value
-}
+
 
 </script>
