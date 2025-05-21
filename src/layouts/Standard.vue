@@ -24,6 +24,7 @@
     </q-drawer>
 
     <q-page-container class="fullscreen">
+      <!-- <Breadcrumbs /> -->
       <router-view />
     </q-page-container>
 
@@ -41,9 +42,10 @@
   </q-layout>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import Breadcrumbs from '../components/Breadcrumbs.vue';
 import { ref } from 'vue'
-import  AsideMenu  from '../layouts/AsideMenu.vue'
+import AsideMenu from '../layouts/AsideMenu.vue'
 
 
 const leftDrawerOpen = ref(false)

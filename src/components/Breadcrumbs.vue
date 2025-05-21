@@ -5,8 +5,6 @@
                 :label="item.meta.title as string">
             </q-breadcrumbs-el>
         </q-breadcrumbs>
-
-        <router-view></router-view>
     </div>
 </template>
 
@@ -20,6 +18,7 @@ let breadList = ref<RouteLocationMatched[]>([]);
 onMounted(() => {
     if (route.matched.length > 0) {
         breadList.value = route.matched;
+        console.log("匹配到的路由为：",route.matched);
     } else {
         breadList.value = [];
     }

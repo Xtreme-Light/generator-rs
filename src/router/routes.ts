@@ -5,7 +5,7 @@ export const routes: RouteRecordRaw[] = [
         path: '/',
         component: () => import('../layouts/Standard.vue'),
         meta: {
-            title: '首页'
+            title: '主页'
         },
         children: [
             {
