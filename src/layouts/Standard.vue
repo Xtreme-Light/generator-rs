@@ -24,7 +24,7 @@
     </q-drawer>
 
     <q-page-container class="fullscreen">
-      <!-- <Breadcrumbs /> -->
+      <Breadcrumbs />
       <router-view />
     </q-page-container>
 

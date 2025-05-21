@@ -4,7 +4,6 @@ import Breadcrumbs from '../components/Breadcrumbs.vue';
 </script>
 
 <template>
-    <Breadcrumbs  />
 
   <div class="q-pa-md">
     <q-markup-table>

@@ -9,7 +9,7 @@ export const routes: RouteRecordRaw[] = [
         },
         children: [
             {
-                path: 'database', component: () => import('../pages/DatabaseList.vue'), meta: {
+                path: 'database', component: () => import('../pages/Database.vue'), meta: {
                     title: '数据库'
                 },
             },
