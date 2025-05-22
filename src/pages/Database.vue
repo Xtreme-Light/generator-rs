@@ -1,6 +1,6 @@
 <template>
 
-  <q-form @submit="onSubmit" @reset="onReset" class="q-pa-md justify-center full-height column">
+  <q-form @submit="onSubmit" @reset="onReset" class="q-pa-md justify-center  column">
     <!-- 上半部分：从上往下排列 -->
     <div class="row q-pa-md q-col-gutter-m  justify-centerd">
       <div class="col-7 q-pa-md">

@@ -1,10 +1,12 @@
 <template>
-    <div class="q-pa-md q-gutter-sm">
-        <q-breadcrumbs>
-            <q-breadcrumbs-el v-for="(item, index) in breadList" :key="index" :to="{ path: item.path }"
-                :label="item.meta.title as string">
-            </q-breadcrumbs-el>
-        </q-breadcrumbs>
+    <div class="row q-pa-md q-gutter-sm">
+        <div class="col-12">
+            <q-breadcrumbs>
+                <q-breadcrumbs-el v-for="(item, index) in breadList" :key="index" :to="{ path: item.path }"
+                    :label="item.meta.title as string">
+                </q-breadcrumbs-el>
+            </q-breadcrumbs>
+        </div>
     </div>
 </template>
 
@@ -18,7 +20,7 @@ let breadList = ref<RouteLocationMatched[]>([]);
 onMounted(() => {
     if (route.matched.length > 0) {
         breadList.value = route.matched;
-        console.log("匹配到的路由为：",route.matched);
+        console.log("匹配到的路由为：", route.matched);
     } else {
         breadList.value = [];
     }

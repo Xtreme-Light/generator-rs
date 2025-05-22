@@ -23,7 +23,7 @@
       <AsideMenu />
     </q-drawer>
 
-    <q-page-container class="fullscreen">
+    <q-page-container>
       <Breadcrumbs />
       <router-view />
     </q-page-container>
